@@ -1,0 +1,266 @@
+/**************************************************************************** 
+//                                                                           
+// LIN Description file   		                                      
+//                                                                          
+// Version: 0.1					              
+//                                                                            
+// Last Modified: 12.12.2020	    	      
+//									                   
+//                                                                             
+// Filename:  SBZ_5877R1006 LDF	      
+//                                                                          
+//  Usage:   SBZ LDF for 5877R1006 actuator		      
+//	 
+//  Change history:
+                            
+//                                                                            
+*****************************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.1";
+LIN_language_version = "2.1";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: ECM_D, 5 ms, 0.16 ms ;
+  Slaves: AGS, AGS2 ;
+}
+
+Signals {
+  AGS2_BoostRq: 1, 0, ECM_D, AGS2 ;
+  AGS2_CalActv: 1, 0, AGS2, ECM_D ;
+  AGS2_CalRq: 1, 0, ECM_D, AGS2 ;
+  AGS2_CalStat: 1, 0, AGS2, ECM_D ;
+  AGS2_CurrPos: 4, 0, AGS2, ECM_D ;
+  AGS2_ErrLIN: 2, 0, AGS2, ECM_D ;
+  AGS2_ErrMechBreak: 1, 0, AGS2, ECM_D ;
+  AGS2_ErrMechStuck: 1, 0, AGS2, ECM_D ;
+  AGS2_ErrOvrTemp: 1, 0, AGS2, ECM_D ;
+  AGS2_ErrOvrVolt: 1, 0, AGS2, ECM_D ;
+  AGS2_ErrUnVolt: 1, 0, AGS2, ECM_D ;
+  AGS2_PosRq: 4, 0, ECM_D, AGS2 ;
+  AGS_BoostRq: 1, 0, ECM_D, AGS ;
+  AGS_CalActv: 1, 0, AGS, ECM_D ;
+  AGS_CalRq: 1, 0, ECM_D, AGS ;
+  AGS_CalStat: 1, 0, AGS, ECM_D ;
+  AGS_CurrPos: 4, 0, AGS, ECM_D ;
+  AGS_ErrLIN: 2, 0, AGS, ECM_D ;
+  AGS_ErrMechBreak: 1, 0, AGS, ECM_D ;
+  AGS_ErrMechStuck: 1, 0, AGS, ECM_D ;
+  AGS_ErrOvrTemp: 1, 0, AGS, ECM_D ;
+  AGS_ErrOvrVolt: 1, 0, AGS, ECM_D ;
+  AGS_ErrUnVolt: 1, 0, AGS, ECM_D ;
+  AGS_PosRq: 4, 0, ECM_D, AGS ;
+  M2SRes2Bit: 2, 0, ECM_D, AGS ;
+  M2SRes2Bit_AGS2: 2, 0, ECM_D, AGS2 ;
+  M2SResByte1: 8, 0, ECM_D, AGS ;
+  M2SResByte1_AGS2: 8, 0, ECM_D, AGS2 ;
+  M2SResByte2: 8, 0, ECM_D, AGS ;
+  M2SResByte2_AGS2: 8, 0, ECM_D, AGS2 ;
+  M2SResByte3: 8, 0, ECM_D, AGS ;
+  M2SResByte3_AGS2: 8, 0, ECM_D, AGS2 ;
+  AGS_BoostStat: 1, 0, AGS, ECM_D ;
+  AGS2_BoostStat: 1, 0, AGS2, ECM_D ;
+  RsErr_AGS: 1, 0, AGS, ECM_D ;
+  RsErr_AGS2: 1, 0, AGS2, ECM_D ;
+  S2MRes1Bit: 1, 0, AGS, ECM_D ;
+  S2MRes1Bit_AGS2: 1, 0, AGS2, ECM_D ;
+  S2MResByte1: 8, 0, AGS, ECM_D ;
+  S2MResByte1_AGS2: 8, 0, AGS2, ECM_D ;
+  S2MResByte2: 8, 0, AGS, ECM_D ;
+  S2MResByte2_AGS2: 8, 0, AGS2, ECM_D ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  ECM_AGS2_DEMAND: 12, ECM_D, 4 {
+    AGS2_PosRq, 0 ;
+    AGS2_CalRq, 4 ;
+    AGS2_BoostRq, 5 ;
+    M2SRes2Bit_AGS2, 6 ;
+    M2SResByte1_AGS2, 8 ;
+    M2SResByte2_AGS2, 16 ;
+    M2SResByte3_AGS2, 24 ;
+  }
+  ECM_AGS_DEMAND: 30, ECM_D, 4 {
+    AGS_PosRq, 0 ;
+    AGS_CalRq, 4 ;
+    AGS_BoostRq, 5 ;
+    M2SRes2Bit, 6 ;
+    M2SResByte1, 8 ;
+    M2SResByte2, 16 ;
+    M2SResByte3, 24 ;
+  }
+  AGS_ECM_STATUS: 32, AGS, 4 {
+    AGS_CurrPos, 0 ;
+    AGS_CalStat, 4 ;
+    AGS_CalActv, 5 ;
+    AGS_ErrUnVolt, 6 ;
+    AGS_ErrOvrVolt, 7 ;
+    AGS_ErrOvrTemp, 8 ;
+    AGS_ErrMechStuck, 9 ;
+    AGS_ErrMechBreak, 10 ;
+    AGS_ErrLIN, 11 ;
+    RsErr_AGS, 13 ;
+    AGS_BoostStat, 14 ;
+    S2MRes1Bit, 15 ;
+    S2MResByte1, 16 ;
+    S2MResByte2, 24 ;
+  }
+  AGS2_ECM_STATUS: 52, AGS2, 4 {
+    AGS2_CurrPos, 0 ;
+    AGS2_CalStat, 4 ;
+    AGS2_CalActv, 5 ;
+    AGS2_ErrUnVolt, 6 ;
+    AGS2_ErrOvrVolt, 7 ;
+    AGS2_ErrOvrTemp, 8 ;
+    AGS2_ErrMechStuck, 9 ;
+    AGS2_ErrMechBreak, 10 ;
+    AGS2_ErrLIN, 11 ;
+    RsErr_AGS2, 13 ;
+    AGS2_BoostStat, 14 ;
+    S2MRes1Bit_AGS2, 15 ;
+    S2MResByte1_AGS2, 16 ;
+    S2MResByte2_AGS2, 24 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  AGS{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xB ;
+    initial_NAD = 0xB ;
+    product_id = 0xFFF, 0xFFEF, 0 ;
+    response_error = RsErr_AGS ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      AGS_ECM_STATUS ;
+      ECM_AGS_DEMAND ;
+    }
+  }
+  AGS2{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xF ;
+    initial_NAD = 0xF ;
+    product_id = 0xFFF, 0xFFEF, 0 ;
+    response_error = RsErr_AGS2 ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      AGS2_ECM_STATUS ;
+      ECM_AGS2_DEMAND ;
+    }
+  }
+}
+
+Schedule_tables {
+ Diag {
+    MasterReq delay 60 ms ;
+    SlaveResp delay 60 ms ;
+  }
+ LIN_SchedTabLIN2 {
+    ECM_AGS_DEMAND delay 40 ms ;
+    ECM_AGS2_DEMAND delay 30 ms ;
+    AGS_ECM_STATUS delay 90 ms ;
+    AGS2_ECM_STATUS delay 70 ms ;
+  }
+   LIN_wakeuptest {
+    ECM_AGS_DEMAND delay 10 ms ;
+    AGS_ECM_STATUS delay 10 ms ;
+  }
+   LIN_AGS1_fast {
+    ECM_AGS_DEMAND delay 20 ms ;
+    AGS_ECM_STATUS delay 20 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  GS_CurrPos {
+    logical_value, 0, "OPEN_100" ;
+    logical_value, 1, "OPEN_89" ;
+    logical_value, 2, "OPEN_77" ;
+    logical_value, 3, "OPEN_66" ;
+    logical_value, 4, "OPEN_55" ;
+    logical_value, 5, "OPEN_44" ;
+    logical_value, 6, "OPEN_33" ;
+    logical_value, 7, "OPEN_22" ;
+    logical_value, 8, "OPEN_11" ;
+    logical_value, 9, "OPEN_0" ;
+    logical_value, 15, "SNA" ;
+  }
+  GS_PosRq {
+    logical_value, 0, "OPEN_100" ;
+    logical_value, 1, "OPEN_89" ;
+    logical_value, 2, "OPEN_77" ;
+    logical_value, 3, "OPEN_66" ;
+    logical_value, 4, "OPEN_55" ;
+    logical_value, 5, "OPEN_44" ;
+    logical_value, 6, "OPEN_33" ;
+    logical_value, 7, "OPEN_22" ;
+    logical_value, 8, "OPEN_11" ;
+    logical_value, 9, "OPEN_0" ;
+  }
+  GenErrLIN {
+    logical_value, 0, "NO_ERROR" ;
+    logical_value, 1, "LIN_SHORT" ;
+    logical_value, 2, "LIN_TO" ;
+    logical_value, 3, "SNA" ;
+  }
+}
+
+Signal_representation {
+  GenErrLIN: AGS2_ErrLIN, AGS_ErrLIN ;
+  GS_CurrPos: AGS2_CurrPos, AGS_CurrPos ;
+  GS_PosRq: AGS2_CalRq, AGS_PosRq ;
+}
