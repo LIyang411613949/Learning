@@ -13,7 +13,7 @@ int * getRandom( )
    for ( i = 0; i < 10; ++i)
    {
       r[i] = rand();
-      printf("%d\n", r[i] );
+      printf("这是数组r的第%d个值%d\n", i,r[i] );
    }
  
    return r;
@@ -24,12 +24,12 @@ int main ()
 {
    /* 一个指向整数的指针 */
    int *p;
-   int i;
+   int j;
  
    p = getRandom();
-   for ( i = 0; i < 10; i++ )
+   for ( j = 0; j < 10; j++ )
    {
-       printf("*(p + [%d]) : %d\n", i, *(p + i) );
+       printf("*(p + [%d]) : %d\n", j, *(p + j) );
    }
  
    return 0;
