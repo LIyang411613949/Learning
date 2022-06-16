@@ -5,9 +5,16 @@ input{
 h1{
     text-align: center;
     margin: 0 auto;
-    padding :0em
+    padding :2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 p{
     text-align: center;
+}
+
+label{
+    width: 100%;
+    margin: auto;
 }
