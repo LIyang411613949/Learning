@@ -93,11 +93,12 @@ body {
   
   .submit{
     display: block;
-    width: 100%;
+    width: 60%;
     padding: 0.75rem;
     background: rgb(9, 250, 9);
     color: inherit;
     border: rgb(9, 250, 9);
     border-radius: 10px;
     cursor: pointer;
+    
   }
