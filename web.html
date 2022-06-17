@@ -9,13 +9,13 @@
   <body>
     <h1 id="title">freeCampCode Survery Form</h1>
     <p id="description">Thank you for taking the time to help us improve the platform</p>
-    <fieldset>
-      <form id="survery-form">
+    <form id="survery-form">
+      <fieldset>
         <label>Name
           <input id="name" type="text" value="Enter your name" required/>
         </label>
         <label>Email
-          <input id="email" type="text" value="Enter your email" required/>
+          <input id="email" type="email" value="Enter your email" required/>
         </label>
         <label>Age 
           <span class="option">(option)</span>
@@ -28,14 +28,13 @@
             <option>Full time job</option>
             <option>Full time learner</option>
             <option>Perefer not to say</option>           
-        </select>
-      </label>
-      </form>
+          </select>
+       </label>
     </fieldset>
     <fieldset>
       <label>Woud you recommend freeCodeCamp to a friend?</label>
       <label>
-        <Input type="radio" name="choice" class="inline"></Input>
+        <Input type="radio" name="choice" class="inline" checked></Input>
         Definitely
       </label>
       <label>
@@ -79,5 +78,6 @@
     <Fieldset>
       <input type="button" value="Summit" id="submit" class="submit"/>
     </Fieldset>
+  </form>
   </body>
 </html>
