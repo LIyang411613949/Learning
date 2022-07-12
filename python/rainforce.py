@@ -23,7 +23,7 @@ pygame.init()
 screen=pygame.display.set_mode([screen_width, screen_height], RESIZABLE)
 
 # 设置标题
-pygame.display.set_caption("代码雨")
+pygame.display.set_caption("你的电脑正在被通缉...")
 
 # 从系统字体库创建一个 Font 对象
 font = pygame.font.SysFont("123.ttf", font_num)
