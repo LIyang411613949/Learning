@@ -60,11 +60,11 @@ while True:
  
     for i in range(rain_num):
         # 随机数字字体
-        text = font.render(str(random.randint(0,9)), True, (0, 255, 0))
-        text = font.render(str(random.choice('abcdefghijklmnopqrstuvwxyz')), True, (0, 255, 0))
+        text1 = font.render(str(random.randint(0,9)), True, (0, 255, 0))
+        text2 = font.render(str(random.choice('abcdefghijklmnopqrstuvwxyz')), True, (0, 255, 0))
  
         # 将字体按照当前下雨的位置刷新到窗口上
-        screen.blit(text, (i * screen_width/rain_num, drops[i] * (font_num - 10)))
+        screen.blit(text2,(i * screen_width/rain_num, drops[i] * (font_num - 10)))
  
         # 更新下雨的坐标，采用随机值
         drops[i] += 1
